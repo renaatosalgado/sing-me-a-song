@@ -2,14 +2,15 @@
 
 import { faker } from "@faker-js/faker";
 
+const name = faker.lorem.words(2);
+
 describe("Posting new song and voting up/down", () => {
   beforeEach(() => {
     cy.request("POST", "http://localhost:5000/resetDatabase");
   });
+
   it("should correctly post a new song, vote and remove by low score", () => {
     cy.visit("http://localhost:3000/");
-
-    const name = faker.lorem.words(2);
 
     cy.get("input[name=name]").type(name);
     cy.get("input[name=link]").type(
@@ -17,8 +18,8 @@ describe("Posting new song and voting up/down", () => {
     );
 
     cy.intercept("POST", "/recommendations").as("postRecommendation");
-
     cy.get("button[type=button]").click();
+
     cy.wait("@postRecommendation");
     cy.contains(name).should("be.visible");
 
@@ -39,14 +40,16 @@ describe("Navigate to pages 'top' and 'random'", () => {
 
     cy.intercept("GET", "/recommendations/top/*").as("getTop");
     cy.contains("Top").click();
-    cy.wait("@getTop");
 
+    cy.wait("@getTop");
     cy.url().should("equal", "http://localhost:3000/top");
+    cy.contains(name).should("be.visible");
 
     cy.intercept("GET", "/recommendations/random").as("getRandom");
     cy.contains("Random").click();
-    cy.wait("@getRandom");
 
+    cy.wait("@getRandom");
     cy.url().should("equal", "http://localhost:3000/random");
+    cy.contains(name).should("be.visible");
   });
 });
