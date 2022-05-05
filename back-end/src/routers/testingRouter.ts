@@ -1,8 +1,8 @@
 import { Router } from "express";
-import testingController from "../controllers/testingController";
+import testingController from "../controllers/testingController.js";
 
 const testingRouter = Router();
 
-testingRouter.post("/resetDB", testingController.resetAll);
+testingRouter.post("/resetDatabase", testingController.resetAll);
 
 export default testingRouter;
