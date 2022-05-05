@@ -5,8 +5,6 @@ export default async function createRecommendationFactory(
   recommendation: CreateRecommendationData
 ) {
   await prisma.recommendation.create({
-    data: {
-      ...recommendation,
-    },
+    data: recommendation,
   });
 }
