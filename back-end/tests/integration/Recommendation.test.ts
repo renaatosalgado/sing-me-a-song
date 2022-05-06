@@ -12,7 +12,7 @@ describe("Recommendations tests", () => {
     return eraseRecommendationTable(), prismaDisconnect();
   });
 
-  describe("Insert new one - POST /recommendations", () => {
+  describe("Insert new recommendation - POST /recommendations", () => {
     it("should return status 201, given a valid body", async () => {
       const body = recommendationBodyFactory();
 
@@ -29,7 +29,7 @@ describe("Recommendations tests", () => {
     });
   });
 
-  describe("Updating the song' score - POST /recommendations/:id/upvote & /recommendations/:id/downvote", () => {
+  describe("Update the song' score - POST /recommendations/:id/upvote & /recommendations/:id/downvote", () => {
     it("should return status 200 and increment the song score, given a valid ID", async () => {
       const id = 1;
 
@@ -89,6 +89,44 @@ describe("Recommendations tests", () => {
       expect(typeof result.body).toBe("object");
       expect(result.body).toBeInstanceOf(Object);
       expect(result.body.id).toEqual(id);
+    });
+  });
+
+  describe("List top recommendations - GET /recommendations/top/:amount", () => {
+    beforeEach(() => {
+      return eraseRecommendationTable();
+    });
+
+    it("should return 8 recommendations in the correct order", async () => {
+      await createManyRecommendationsFactory();
+
+      const amount = 8;
+
+      await prisma.recommendation.update({
+        where: {
+          id: 7,
+        },
+        data: {
+          score: 7,
+        },
+      });
+
+      await prisma.recommendation.update({
+        where: {
+          id: 8,
+        },
+        data: {
+          score: 8,
+        },
+      });
+
+      const result = await supertest(app).get(`/recommendations/top/${amount}`);
+
+      console.log(result.body)
+
+      expect(result.body).toHaveLength(amount);
+      expect(result.body[0].id).toEqual(8);
+      expect(result.body[1].id).toEqual(7);
     });
   });
 });
