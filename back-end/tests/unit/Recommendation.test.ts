@@ -1,9 +1,7 @@
 import { faker } from "@faker-js/faker";
 import { jest } from "@jest/globals";
-import { Recommendation } from "@prisma/client";
 import { recommendationRepository } from "../../src/repositories/recommendationRepository.js";
 import { recommendationService } from "../../src/services/recommendationsService.js";
-import { notFoundError } from "../../src/utils/errorUtils";
 
 describe("Recommendation service unit tests", () => {
   beforeEach(() => {
@@ -57,6 +55,22 @@ describe("Recommendation service unit tests", () => {
       expect(recommendationFind).toHaveBeenCalledTimes(1);
       expect(recommendationUpdate).toHaveBeenCalledTimes(1);
       expect(recommendationRemoval).toHaveBeenCalledTimes(1);
+    });
+  });
+
+  describe("Get random recommendation - GET /recommendations/random", () => {
+    it("should return status 404 when there is no recommendations at all", async () => {
+      jest.spyOn(recommendationRepository, "findAll").mockResolvedValue([]);
+
+      try {
+        await recommendationService.getRandom();
+      } catch (error) {
+        expect(error.type).toEqual("not_found");
+      }
+    });
+
+    it("should return an recommendation with score between -5 and 10", async () => {
+        
     });
   });
 });
