@@ -2,14 +2,14 @@ import app from "../../src/app.js";
 import supertest from "supertest";
 import { prisma } from "../../src/database.js";
 import recommendationBodyFactory from "../factories/recommendationBodyFactory.js";
-import createRecommendationFactory from "../factories/recommendationFactory.js";
+import createManyRecommendationsFactory from "../factories/manyRecommendationsFactory.js";
 
 describe("Recommendations tests", () => {
   afterAll(() => {
-    return eraseRecommendationTable();
+    return eraseRecommendationTable(), prismaDisconnect();
   });
 
-  describe("Insert new one - POST /recommendation", () => {
+  describe("Insert new one - POST /recommendations", () => {
     it("should return status 201, given a valid body", async () => {
       const body = recommendationBodyFactory();
 
@@ -26,7 +26,7 @@ describe("Recommendations tests", () => {
     });
   });
 
-  describe("Updating the votes for a song", () => {
+  describe("Updating the song' score - POST /recommendations/:id/upvote & /recommendations/:id/downvote", () => {
     it("should return status 200 and increment the song score, given a valid ID", async () => {
       const result = await supertest(app).post("/recommendations/1/upvote");
 
@@ -53,8 +53,28 @@ describe("Recommendations tests", () => {
       expect(recommendation.score).toEqual(0);
     });
   });
+
+  describe("Update timeline - GET /recommendations", () => {
+    beforeEach(() => {
+      return eraseRecommendationTable();
+    });
+
+    it("should return the newest 10 recommendations", async () => {
+      createManyRecommendationsFactory();
+
+      const result = await supertest(app).get("/recommendations");
+
+
+      expect(result.body).toHaveLength(10);
+      expect(result.body[0].id).toEqual(15);
+    });
+  });
 });
 
 async function eraseRecommendationTable() {
   return await prisma.$executeRaw`TRUNCATE TABLE recommendations RESTART IDENTITY`;
+}
+
+async function prismaDisconnect() {
+  return await prisma.$disconnect();
 }

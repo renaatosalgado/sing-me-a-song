@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1651775791050" clover="3.2.0">
-  <project timestamp="1651775791050" name="All files">
-    <metrics statements="101" coveredstatements="47" conditionals="30" coveredconditionals="1" methods="34" coveredmethods="10" elements="165" coveredelements="58" complexity="0" loc="101" ncloc="101" packages="9" files="14" classes="14"/>
+<coverage generated="1651831833799" clover="3.2.0">
+  <project timestamp="1651831833800" name="All files">
+    <metrics statements="102" coveredstatements="54" conditionals="30" coveredconditionals="2" methods="35" coveredmethods="15" elements="167" coveredelements="71" complexity="0" loc="102" ncloc="102" packages="9" files="15" classes="15"/>
     <package name="src">
       <metrics statements="9" coveredstatements="9" conditionals="1" coveredconditionals="1" methods="0" coveredmethods="0"/>
       <file name="app.ts" path="/home/renato/Documentos/Desenvolvimento/sing-me-a-song/back-end/src/app.ts">
@@ -21,9 +21,9 @@
       </file>
     </package>
     <package name="src.controllers">
-      <metrics statements="24" coveredstatements="11" conditionals="1" coveredconditionals="0" methods="8" coveredmethods="3"/>
+      <metrics statements="24" coveredstatements="13" conditionals="1" coveredconditionals="0" methods="8" coveredmethods="4"/>
       <file name="recommendationController.ts" path="/home/renato/Documentos/Desenvolvimento/sing-me-a-song/back-end/src/controllers/recommendationController.ts">
-        <metrics statements="22" coveredstatements="11" conditionals="1" coveredconditionals="0" methods="7" coveredmethods="3"/>
+        <metrics statements="22" coveredstatements="13" conditionals="1" coveredconditionals="0" methods="7" coveredmethods="4"/>
         <line num="7" count="1" type="stmt"/>
         <line num="8" count="1" type="cond" truecount="0" falsecount="1"/>
         <line num="9" count="0" type="stmt"/>
@@ -37,8 +37,8 @@
         <line num="30" count="1" type="stmt"/>
         <line num="34" count="0" type="stmt"/>
         <line num="36" count="0" type="stmt"/>
-        <line num="40" count="0" type="stmt"/>
-        <line num="41" count="0" type="stmt"/>
+        <line num="40" count="1" type="stmt"/>
+        <line num="41" count="1" type="stmt"/>
         <line num="45" count="0" type="stmt"/>
         <line num="47" count="0" type="stmt"/>
         <line num="48" count="0" type="stmt"/>
@@ -64,20 +64,20 @@
       </file>
     </package>
     <package name="src.repositories">
-      <metrics statements="12" coveredstatements="4" conditionals="1" coveredconditionals="0" methods="8" coveredmethods="3"/>
+      <metrics statements="12" coveredstatements="7" conditionals="1" coveredconditionals="1" methods="8" coveredmethods="5"/>
       <file name="recommendationRepository.ts" path="/home/renato/Documentos/Desenvolvimento/sing-me-a-song/back-end/src/repositories/recommendationRepository.ts">
-        <metrics statements="11" coveredstatements="4" conditionals="1" coveredconditionals="0" methods="7" coveredmethods="3"/>
+        <metrics statements="11" coveredstatements="7" conditionals="1" coveredconditionals="1" methods="7" coveredmethods="5"/>
         <line num="6" count="1" type="stmt"/>
-        <line num="17" count="0" type="stmt"/>
-        <line num="19" count="0" type="stmt"/>
-        <line num="26" count="0" type="stmt"/>
-        <line num="35" count="0" type="cond" truecount="0" falsecount="1"/>
-        <line num="37" count="0" type="stmt"/>
-        <line num="39" count="0" type="stmt"/>
-        <line num="45" count="2" type="stmt"/>
-        <line num="51" count="2" type="stmt"/>
-        <line num="60" count="0" type="stmt"/>
-        <line num="65" count="1" type="stmt"/>
+        <line num="17" count="1" type="stmt"/>
+        <line num="19" count="1" type="stmt"/>
+        <line num="27" count="0" type="stmt"/>
+        <line num="36" count="1" type="cond" truecount="1" falsecount="0"/>
+        <line num="38" count="0" type="stmt"/>
+        <line num="40" count="0" type="stmt"/>
+        <line num="46" count="2" type="stmt"/>
+        <line num="52" count="2" type="stmt"/>
+        <line num="61" count="0" type="stmt"/>
+        <line num="66" count="1" type="stmt"/>
       </file>
       <file name="testingRepository.ts" path="/home/renato/Documentos/Desenvolvimento/sing-me-a-song/back-end/src/repositories/testingRepository.ts">
         <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
@@ -112,9 +112,9 @@
       </file>
     </package>
     <package name="src.services">
-      <metrics statements="28" coveredstatements="9" conditionals="6" coveredconditionals="0" methods="10" coveredmethods="3"/>
+      <metrics statements="28" coveredstatements="10" conditionals="6" coveredconditionals="0" methods="10" coveredmethods="4"/>
       <file name="recommendationsService.ts" path="/home/renato/Documentos/Desenvolvimento/sing-me-a-song/back-end/src/services/recommendationsService.ts">
-        <metrics statements="27" coveredstatements="9" conditionals="6" coveredconditionals="0" methods="9" coveredmethods="3"/>
+        <metrics statements="27" coveredstatements="10" conditionals="6" coveredconditionals="0" methods="9" coveredmethods="4"/>
         <line num="8" count="1" type="stmt"/>
         <line num="12" count="1" type="stmt"/>
         <line num="13" count="1" type="cond" truecount="0" falsecount="1"/>
@@ -125,7 +125,7 @@
         <line num="24" count="1" type="cond" truecount="0" falsecount="1"/>
         <line num="25" count="0" type="stmt"/>
         <line num="30" count="0" type="stmt"/>
-        <line num="34" count="0" type="stmt"/>
+        <line num="34" count="1" type="stmt"/>
         <line num="38" count="0" type="stmt"/>
         <line num="42" count="0" type="stmt"/>
         <line num="43" count="0" type="stmt"/>
@@ -165,11 +165,15 @@
       </file>
     </package>
     <package name="tests.factories">
-      <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+      <file name="manyRecommendationsFactory.ts" path="/home/renato/Documentos/Desenvolvimento/sing-me-a-song/back-end/tests/factories/manyRecommendationsFactory.ts">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="5" count="1" type="stmt"/>
+      </file>
       <file name="recommendationBodyFactory.ts" path="/home/renato/Documentos/Desenvolvimento/sing-me-a-song/back-end/tests/factories/recommendationBodyFactory.ts">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="5" count="1" type="stmt"/>
-        <line num="10" count="1" type="stmt"/>
+        <line num="5" count="16" type="stmt"/>
+        <line num="10" count="16" type="stmt"/>
       </file>
     </package>
   </project>
