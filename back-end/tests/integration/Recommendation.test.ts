@@ -4,8 +4,7 @@ import { prisma } from "../../src/database.js";
 import recommendationBodyFactory from "../factories/recommendationBodyFactory.js";
 import createManyRecommendationsFactory from "../factories/manyRecommendationsFactory.js";
 import singleRecommendationFactory from "../factories/singleRecommendationFactory.js";
-import { Recommendation } from "@prisma/client";
-import { faker } from "@faker-js/faker";
+import { jest } from "@jest/globals";
 
 describe("Recommendations tests", () => {
   afterAll(() => {
@@ -122,11 +121,37 @@ describe("Recommendations tests", () => {
 
       const result = await supertest(app).get(`/recommendations/top/${amount}`);
 
-      console.log(result.body)
-
       expect(result.body).toHaveLength(amount);
       expect(result.body[0].id).toEqual(8);
       expect(result.body[1].id).toEqual(7);
+    });
+  });
+
+  describe("Get random song recommendation - GET /recommendations/random", () => {
+    beforeEach(() => {
+      return eraseRecommendationTable();
+    });
+
+    it("should return the correct object", async () => {
+      await createManyRecommendationsFactory();
+
+      const id = 8;
+
+      await prisma.recommendation.update({
+        where: {
+          id: id,
+        },
+        data: {
+          score: 15,
+        },
+      });
+
+      jest.spyOn(Math, "random").mockReturnValueOnce(0.2);
+
+      const result = await supertest(app).get("/recommendations/random");
+
+      expect(result.body).toBeInstanceOf(Object);
+      expect(result.body.id).toEqual(id);
     });
   });
 });
