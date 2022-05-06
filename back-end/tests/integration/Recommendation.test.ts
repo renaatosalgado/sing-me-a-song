@@ -6,7 +6,7 @@ import createManyRecommendationsFactory from "../factories/manyRecommendationsFa
 import singleRecommendationFactory from "../factories/singleRecommendationFactory.js";
 import { jest } from "@jest/globals";
 
-describe("Recommendations tests", () => {
+describe("Recommendations integration tests", () => {
   afterAll(() => {
     return eraseRecommendationTable(), prismaDisconnect();
   });
