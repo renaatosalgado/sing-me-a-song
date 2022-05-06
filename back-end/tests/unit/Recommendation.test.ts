@@ -59,6 +59,11 @@ describe("Recommendation service unit tests", () => {
   });
 
   describe("Get random recommendation - GET /recommendations/random", () => {
+    beforeEach(() => {
+      jest.clearAllMocks();
+      jest.resetAllMocks();
+    });
+
     it("should return status 404 when there is no recommendations at all", async () => {
       jest.spyOn(recommendationRepository, "findAll").mockResolvedValue([]);
 
@@ -69,8 +74,23 @@ describe("Recommendation service unit tests", () => {
       }
     });
 
-    it("should return an recommendation with score between -5 and 10", async () => {
-        
+    it("should return a recommendation with score between -5 and 10", async () => {
+      const recommendation = {
+        id: 1,
+        youtubeLink: "https://www.youtube.com/watch?v=11yn67BBiV8&t=4s",
+        score: -10,
+        name: faker.lorem.words(2),
+      };
+
+      jest.spyOn(Math, "random").mockReturnValueOnce(0.9);
+
+      const recommendationFind = jest
+        .spyOn(recommendationRepository, "findAll")
+        .mockResolvedValue([recommendation]);
+
+      await recommendationService.getRandom();
+
+      expect(recommendationFind).toHaveBeenCalledTimes(1);
     });
   });
 });
