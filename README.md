@@ -7,7 +7,7 @@ Have you ever asked someone for a song recommendation? Thats solved by this app!
 
 ## About
 
-This is an web application which lots of people share their musical taste and preferentes. The more people thumbs up a song, higher the chances of it getting recommended for even more people!
+This is an web application which lots of people share their musical taste and preferences. The more people thumbs up a song, higher the chances of it getting recommended for even more people!
 Below are the implemented features:
 
 - Add a new recommendation
@@ -40,7 +40,7 @@ The following tools and frameworks were used in the construction of the project:
 ```bash
 npm i
 ```
-3. Create a ".env" file in, frontend root, containing the following variable
+3. Create a ".env" file, in frontend root, containing the following variable
 ```bash
 REACT_APP_API_BASE_URL=your_back_end_link
 ```
