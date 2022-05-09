@@ -2,7 +2,7 @@
 
 Have you ever asked someone for a song recommendation? Thats solved by this app! This is an application for anonymous songs recommendations.
 <p align="center">
-  <img src="public/assets/sing-me-a-song.mp4" />
+  <img src="/public/assets/sing-me-a-song.gif" />
 </p>
 
 ## About
