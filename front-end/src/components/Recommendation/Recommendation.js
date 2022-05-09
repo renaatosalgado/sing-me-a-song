@@ -1,9 +1,7 @@
 import styled from "styled-components";
-import { useEffect } from "react";
-
+import React, { useEffect } from "react";
 import ReactPlayer from "react-player";
 import { GoArrowUp, GoArrowDown } from "react-icons/go";
-
 import useUpvoteRecommendation from "../../hooks/api/useUpvoteRecommendation";
 import useDownvoteRecommendation from "../../hooks/api/useDownvoteRecommendation";
 

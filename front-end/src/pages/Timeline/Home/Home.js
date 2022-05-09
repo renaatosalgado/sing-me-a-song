@@ -1,8 +1,6 @@
-import { useEffect } from "react";
-
+import React, { useEffect } from "react";
 import useRecommendations from "../../../hooks/api/useRecommendations";
 import useCreateRecommendation from "../../../hooks/api/useCreateRecommendation";
-
 import CreateNewRecommendation from "../../../components/CreateNewRecommendation";
 import Recommendation from "../../../components/Recommendation";
 

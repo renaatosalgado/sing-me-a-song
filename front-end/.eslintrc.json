@@ -18,6 +18,9 @@
   },
   "plugins": ["react", "cypress"],
   "rules": {
-    "jest/expect-expect": "off"
+    "jest/expect-expect": "off",
+    "react/prop-types": "off",
+    "react/display-name": "off",
+    "no-unused-vars": "warn"
   }
 }

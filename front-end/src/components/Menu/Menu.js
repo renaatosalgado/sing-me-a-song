@@ -1,6 +1,6 @@
+import React from "react";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
-
 import { FaHome } from "react-icons/fa";
 import { HiTrendingUp } from "react-icons/hi";
 import { FiShuffle } from "react-icons/fi";
@@ -25,7 +25,7 @@ export default function Menu() {
         Random
       </MenuItem>
     </StyledMenu>
-  )
+  );
 }
 
 const StyledMenu = styled.div`
