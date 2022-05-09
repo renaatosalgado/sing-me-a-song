@@ -30,7 +30,7 @@ The following tools and frameworks were used in the construction of the project:
   <img style='margin: 5px;' src='https://img.shields.io/badge/typescript%20-%2320232a.svg?&style=for-the-badge&color=blue'>
   <img style='margin: 5px;' src='https://img.shields.io/badge/supertest%20-%2320232a.svg?&style=for-the-badge&color=green'>
   <img style='margin: 5px;' src='https://img.shields.io/badge/jest%20-%2320232a.svg?&style=for-the-badge&color=red'>
-  <img style='margin: 5px;' src='https://img.shields.io/badge/joi%20-%2320232a.svg?&style=for-the-badge&color=critical'>
+  <img style='margin: 5px;' src='https://img.shields.io/badge/joi%20-%2320232a.svg?&style=for-the-badge&color=informational'>
 </p>
 
 ## How to run
@@ -40,17 +40,16 @@ The following tools and frameworks were used in the construction of the project:
 ```bash
 npm i
 ```
-3. Create a '.env' file in, frontend root, containing the following variable
+3. Create a ".env" file in, frontend root, containing the following variable
 ```bash
-#fronend .env file
 REACT_APP_API_BASE_URL=your_back_end_link
 ```
-4. Create a '.env' file, in backend root, containing the following variables
+4. Create a ".env" file, in backend root, containing the following variables
 ```bash
 DATABASE_URL=your_database_url
 NODE_ENV=prod
 ```
-5. Also create a '.env.test' file, in backend root, containing the following variables
+5. Also create a ".env.test" file, in backend root, containing the following variables
 ```bash
 DATABASE_URL=your_test_database_url
 NODE_ENV=test
